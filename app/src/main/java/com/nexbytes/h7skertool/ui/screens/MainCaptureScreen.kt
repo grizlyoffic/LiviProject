@@ -45,6 +45,7 @@ import com.nexbytes.h7skertool.ui.theme.*
 import com.nexbytes.h7skertool.utils.ExportUtils
 import com.nexbytes.h7skertool.utils.ModFile
 import com.nexbytes.h7skertool.viewmodel.AppUiState
+import androidx.compose.foundation.BorderStroke
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
