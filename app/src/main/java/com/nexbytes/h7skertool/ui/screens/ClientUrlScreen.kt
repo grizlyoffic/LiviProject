@@ -26,10 +26,11 @@ import com.nexbytes.h7skertool.ui.theme.*
 
 @Composable
 fun ClientUrlScreen(
-    currentUrl: String,
+    currentUrl: String,  // Parameter abhi bhi hai but use nahi kar rahe
     onContinue: (String) -> Unit
 ) {
-    var url by remember { mutableStateOf(currentUrl.ifEmpty { "https://client.us.freefiremobile.com" }) }
+    // Hamesha empty string se start karo, currentUrl ko ignore karo
+    var url by remember { mutableStateOf("") }
     var urlError by remember { mutableStateOf<String?>(null) }
 
     fun validate(): Boolean {
@@ -81,7 +82,7 @@ fun ClientUrlScreen(
                     value = url,
                     onValueChange = { url = it; urlError = null },
                     modifier = Modifier.fillMaxWidth(),
-                    placeholder = { Text("https://example.com", color = TextDim) },
+                    placeholder = { Text("Enter client URL", color = TextDim) },
                     leadingIcon = { Icon(Icons.Default.Http, null, tint = TextSecondary) },
                     trailingIcon = {
                         if (url.isNotEmpty()) {
@@ -113,11 +114,15 @@ fun ClientUrlScreen(
                     }
                 }
 
-                // Quick presets
+                // Quick presets - PolarBear, US, IND
                 Text("Quick presets:", color = TextSecondary, fontSize = 11.sp)
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     PresetChip("PolarBear") { url = "https://clientbp.ggpolarbear.com" }
-                    PresetChip("Local") { url = "http://192.168.1.1:7777" }
+                    PresetChip("US Client") { url = "https://client.us.freefiremobile.com" }
+                    PresetChip("IND Client") { url = "http://client.ind.freefiremobile.com" }
                 }
             }
 
