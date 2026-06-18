@@ -11,7 +11,7 @@ object ShizukuFileService {
 
     private val TARGET_DIRS = listOf(
         "/storage/emulated/0/Android/data/com.dts.freefireth/files",
-        "/storage/emulated/0/Android/data/com.dts.freefireth.max/files"
+        "/storage/emulated/0/Android/data/com.dts.freefiremax/files"
     )
 
     data class FileWriteResult(val path: String, val success: Boolean, val error: String? = null)
