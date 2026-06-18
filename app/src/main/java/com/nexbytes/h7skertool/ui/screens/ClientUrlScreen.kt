@@ -29,7 +29,7 @@ fun ClientUrlScreen(
     currentUrl: String,
     onContinue: (String) -> Unit
 ) {
-    var url by remember { mutableStateOf(currentUrl.ifEmpty { "https://clientbp.ggpolarbear.com" }) }
+    var url by remember { mutableStateOf(currentUrl.ifEmpty { "https://client.us.freefiremobile.com" }) }
     var urlError by remember { mutableStateOf<String?>(null) }
 
     fun validate(): Boolean {
